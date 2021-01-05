@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./public/tab-icon.png">
+    <title>Github Search Engine</title>
+    <link rel="stylesheet" href="./public/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <h1 id='title'>Github User Search</h1>
+        <form>
+            <input name='username' class='form-element' id='search' type="text" placeholder='Search by Name or Username'>
+            <button type='submit' class='form-element' id='search-btn'><i class="fa fa-search" aria-hidden="true"></i>Search</button>
+        </form>
+    </header>
+    <div id='toggle-switch'>
+        <button data-view='grid-view' class='toggle-btn grid-btn'><i class="fa fa-th-large" aria-hidden="true"></i>
+            <span class='button-txt'>GRID</span></button>
+        <button data-view='list-view' class='toggle-btn list-btn active'><i class="fa fa-th-list" aria-hidden="true"></i>
+            <span class='button-txt'>LIST</span></button>
+    </div>
+    <div id='main-container'>
+        <div id='list-view'>
+
+        </div>
+        <div id='grid-view'>
+
+        </div>
+    </div>
+    <p id='not-found'></p>
+    </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='./public/main.js'></script>
+</html>
+
