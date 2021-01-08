@@ -46,7 +46,6 @@ function setupUserPage(){
                 document.getElementById('org-title').innerText = `Organization : `;
                 $.get(`https://api.github.com/users/${searchedUsername}/orgs`, function(orgs){
                     if(orgs[0][`login`]){orgName = orgs[0]['login']};
-                    console.log(orgs[0]['login']);
                     document.getElementById('org-img-div').innerHTML = `<img id='org-img' src=${orgs[0]['avatar_url']} alt="">`;
                     document.getElementById('org-dscr').innerText = orgs[0]['description'];
                     $.get(orgs[0]['url'], function(orgUrl){
