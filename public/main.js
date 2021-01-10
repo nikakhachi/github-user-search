@@ -93,7 +93,9 @@ document.getElementById("search-btn").addEventListener("click", function(event){
 // Goes through API and collects data for searched users
 function searchUsers(){
     let repositories = '';
-    $.get('https://api.github.com/search/users?q=' + userName + '+in:user&per_page=25', function(data){
+	// Number of found users that appears, can be changed. for now it is just 10. That means, for every search you will you max of 10 accounts.
+	// The number is low, because of github REST API rate limit. Less information you seach from API, longer you can use the search engine without exceeding rate limit
+    $.get('https://api.github.com/search/users?q=' + userName + '+in:user&per_page=10', function(data){
         users = data.items;
         // If no users are found, displays **Not Found**...
         if(data['total_count'] === 0){
