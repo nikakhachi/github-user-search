@@ -1,5 +1,3 @@
-
-
 let userName = '';
 let users = [];
 let toggleSwitches = document.querySelectorAll('.toggle-btn');
