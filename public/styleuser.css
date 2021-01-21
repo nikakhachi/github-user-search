@@ -7,6 +7,15 @@ body {
   font-family: "Montserrat", sans-serif;
   /* font-family: "Allerta Stencil", sans-serif; */
   background-color: #ebecf1;
+  animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 #main-container {
