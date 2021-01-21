@@ -1,17 +1,13 @@
 const regex = /[\w-]+$/;
 const currentURL = window.location.href;
 const searchedUsername = currentURL.match(regex)[0];
-const mainURL = currentURL.replace(/[\w-]+$/,'');
 
+const mainURL = currentURL.replace(/[\w-]+$/,'');
+document.getElementById('back-link').href = mainURL;
 
 document.title = `${searchedUsername} | Github Search Engine`;
 
-
 setupUserPage();
-
-
-document.getElementById('back-link').href = mainURL;
-
 
 // Sets up the whole user info
 function setupUserPage(){
@@ -95,4 +91,3 @@ function setupUserPage(){
         }
     });
 }
-
