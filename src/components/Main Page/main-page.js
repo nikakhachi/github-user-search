@@ -1,8 +1,10 @@
+import './main-page.css';
+import Header from './subcomponents/header';
 
 function MainPage(){
     return (
-        <div>
-            MAIN
+        <div id='main-container'>
+            <Header />
         </div>
     )
 }
