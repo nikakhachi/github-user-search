@@ -1,0 +1,46 @@
+#user-body {
+  padding: 2%;
+  font-family: "Montserrat", sans-serif;
+}
+
+#user-info-box {
+  background-color: white;
+  display: flex;
+  width: 60%;
+  padding: 1%;
+  border-radius: 0.5vw;
+}
+
+#user-avatar {
+  border-radius: 0.5vw;
+  margin-right: 2%;
+  width: 35%;
+}
+
+#user-main-info {
+  display: grid;
+}
+
+#user-fullname {
+  font-size: 2.55vw;
+}
+
+#user-login {
+  font-size: 1.7vw;
+}
+
+#user-login span {
+  font-size: 1.3vw;
+}
+
+#user-joindate {
+  font-size: 1.6vw;
+}
+
+#user-location {
+  font-size: 1.6vw;
+}
+
+#user-follow {
+  font-size: 1.6vw;
+}
