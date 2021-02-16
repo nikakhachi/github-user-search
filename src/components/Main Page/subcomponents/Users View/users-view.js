@@ -31,6 +31,7 @@ function UsersView(props){
     }, []);
 
     useEffect(() => {
+            setReposLoaded(false);
             let repoArray = [];
             userList.map(item => {
                 fetch(item['repos_url'])
@@ -54,8 +55,8 @@ function UsersView(props){
         <>
         <ToggleSwitch setView={setIsGrid} view={isGrid}/>
         <div id='view-container'>
-            {!reposLoaded && !isGrid ? <ListView users={userList} repos={reposList}/>: <></>}
-            {!reposLoaded && isGrid ? <GridView users={userList} repos={reposList}/> : <></>}
+            {reposLoaded && !isGrid ? <ListView users={userList} repos={reposList}/> : 
+            reposLoaded && isGrid ? <GridView users={userList} repos={reposList}/> : <></>}
         </div>
         </>
     )
