@@ -90,12 +90,11 @@ const usersGetInitial = (login) => {
             dispatch(usersGetSuccess(response.data.items));
             let repoArray = [];
             response.data.items.map(item => {
-                fetch(item['repos_url'])
-                .then(response => response.json())
-                .then(fetchedRepos => {
+                axios.get(item['repos_url'])
+                .then(response => {
                     let repos = '';
                     for(let i = 0; i < 3; i++){
-                        repos += fetchedRepos[i] ? `${fetchedRepos[i]['name']}, ` : '';
+                        repos += response.data[i] ? `${response.data[i]['name']}, ` : '';
                     }
                     repoArray.push(repos);
                     dispatch(reposGetSuccess(repoArray));
