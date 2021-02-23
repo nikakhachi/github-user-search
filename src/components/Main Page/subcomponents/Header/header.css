@@ -5,6 +5,7 @@ header {
 #title {
   font-family: "Allerta Stencil", sans-serif;
   font-size: 4.3vw;
+  margin-bottom: 4%;
 }
 #search {
   width: 30%;
@@ -66,7 +67,6 @@ header {
 @media (max-width: 500px) {
   header {
     margin: 0px;
-    margin: -5%;
   }
   #title {
     font-size: 13vw;
@@ -82,7 +82,7 @@ header {
   #search-btn {
     width: 30%;
     font-size: 4vw;
-    height: 10vw;
+    height: 9vw;
   }
   form {
     margin-bottom: 8%;

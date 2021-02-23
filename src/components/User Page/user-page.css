@@ -9,6 +9,8 @@
   width: 60%;
   padding: 1%;
   border-radius: 0.5vw;
+  float: left;
+  margin-right: 1%;
 }
 
 #user-avatar {
@@ -43,4 +45,53 @@
 
 #user-follow {
   font-size: 1.6vw;
+}
+
+#user-orgs-box {
+  background-color: white;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  border-radius: 0.5vw;
+}
+
+#user-org-title {
+  font-size: 2.55vw;
+}
+
+#user-org-url {
+  font-size: 2vw;
+  margin: 2% 0 3% 0;
+}
+
+#user-org-img {
+  width: 50%;
+}
+
+#user-org-description {
+  font-size: 1.4vw;
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+
+#user-orgs {
+  font-size: 1.1vw;
+}
+
+#user-repos-box {
+  background-color: white;
+  width: 40%;
+  margin-top: -9%;
+  padding: 1.5% 2.5%;
+}
+#user-repos-title {
+  font-size: 2.2vw;
+  margin-bottom: 3%;
+}
+#user-repo {
+  font-size: 1.5vw;
+  margin-bottom: 1.6%;
 }
