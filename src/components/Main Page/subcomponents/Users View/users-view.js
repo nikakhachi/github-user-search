@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import ToggleSwitch from './subcomponents/toggle-switch';
 import ListView from './subcomponents/list-view';
 import GridView from './subcomponents/grid-view';
-import { usersGetInitial } from '../../../../redux/redux';
+import { usersGetInitial, usersReset } from '../../../../redux/redux';
 import { useSelector, useDispatch } from 'react-redux';
 
 
@@ -34,8 +34,8 @@ function UsersView(props){
         <>
         <ToggleSwitch setView={setIsGrid} view={isGrid}/>
         <div id='view-container'>
-            {!loading && !isGrid ? <ListView users={users} repos={repos}/> : 
-            !loading && isGrid ? <GridView users={users} repos={repos}/> : <></>}
+            {!loading && !isGrid ? <ListView users={users} repos={repos} click={() => dispatch(usersReset())}/> : 
+            !loading && isGrid ? <GridView users={users} repos={repos} click={() => dispatch(usersReset())}/> : <></>}
         </div>
         </>
     )

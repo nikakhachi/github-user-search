@@ -56,6 +56,7 @@
   align-items: center;
   padding: 1%;
   border-radius: 0.5vw;
+  float: right;
 }
 
 #user-org-title {
@@ -79,13 +80,20 @@
 
 #user-orgs {
   font-size: 1.1vw;
+  margin-bottom: 5%;
+}
+
+#user-orgs a {
+  padding-right: 2%;
 }
 
 #user-repos-box {
   background-color: white;
   width: 40%;
-  margin-top: -9%;
+  margin-top: 1.5%;
   padding: 1.5% 2.5%;
+  border-radius: 0.5vw;
+  float: left;
 }
 #user-repos-title {
   font-size: 2.2vw;
@@ -94,4 +102,31 @@
 #user-repo {
   font-size: 1.5vw;
   margin-bottom: 1.6%;
+}
+
+a {
+  color: orange;
+}
+
+a:hover {
+  color: rgb(255, 179, 38);
+}
+
+#back-link {
+  background-color: rgba(0, 0, 0, 0.925);
+  color: white;
+  border: none;
+  font-size: 2vw;
+  padding: 0.3% 0.5%;
+  border-radius: 0.8vw;
+  position: absolute;
+  bottom: 5%;
+  left: 3%;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  #user-box {
+    background-color: red;
+  }
 }

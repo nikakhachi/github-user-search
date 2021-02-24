@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 
+
 function usersGetRequest () {
     return {
         type: `USERS_GET_REQUEST`
@@ -53,6 +54,7 @@ const initialState = {
     loading: true,
     users: [],
     repos: [],
+    user: [],
     orgs: [],
     error: ''
 }
@@ -97,17 +99,39 @@ const usersGetInitial = (login) => {
                         repos += response.data[i] ? `${response.data[i]['name']}, ` : '';
                     }
                     repoArray.push(repos);
-                    dispatch(reposGetSuccess(repoArray));
-                    if(store.getState().users.length === store.getState().repos.length){
+                    if(store.getState().users.length === repoArray.length){
+                        dispatch(reposGetSuccess(repoArray));
                         dispatch(usersLoaded());
                     }
                 })
+                .catch(error => dispatch(usersGetError(error.message)))
             })
         })
         .catch(error => dispatch(usersGetError(error.message)))
     }
 }
 
+const getSpecificUser = (login) => {
+    return function(dispatch){
+        dispatch(usersReset());
+        dispatch(usersGetRequest());
+        axios.get(`https://api.github.com/users/${login}`)
+        .then(userData => {
+            dispatch(usersGetSuccess(userData.data))
+            axios.get(userData.data[`repos_url`])
+            .then(reposData => {
+                dispatch(reposGetSuccess(reposData.data));
+                axios.get(userData.data['organizations_url'])
+                .then(orgsData => {
+                    dispatch(orgsGetSuccess(orgsData.data));
+                    dispatch(usersLoaded());
+                })
+            })
+        })
+    }
+}
 
 
-export { store, usersGetInitial };
+
+
+export { store, usersGetInitial, getSpecificUser, usersReset };
