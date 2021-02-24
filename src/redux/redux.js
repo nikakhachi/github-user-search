@@ -86,7 +86,7 @@ const usersGetInitial = (login) => {
     return function(dispatch){
         dispatch(usersReset());
         dispatch(usersGetRequest());
-        axios.get(!login ? `https://api.github.com/search/users?q=followers:%3E=50000+in:user` : `https://api.github.com/search/users?q=${login}+in:user&per_page=2`)
+        axios.get(!login ? `https://api.github.com/search/users?q=followers:%3E=50000+in:user` : `https://api.github.com/search/users?q=${login}+in:user&per_page=7`)
         .then(response => {
             if(response.data.items.length > 0){
                 dispatch(usersGetSuccess(response.data.items));
