@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 
@@ -79,12 +79,7 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-// const store = createStore(reducer, applyMiddleware(thunk));
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, composeEnhancers(
-    applyMiddleware(thunk)
-  ));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 
 const usersGetInitial = (login) => {
@@ -105,10 +100,6 @@ const usersGetInitial = (login) => {
                     let repos = response.data[2] ? `${response.data[0].name}, ${response.data[1].name}, ${response.data[2].name}`
                                 : response.data[1] ? `${response.data[0].name}, ${response.data[1].name}` 
                                 : response.data[0] ? `${response.data[0].name}` : 'None';
-                    // let repos = '';
-                    // for(let i = 0; i < 3; i++){
-                    //     repos += response.data[i] ? `${response.data[i]['name']}, ` : '';
-                    // }
                     repoArray.push(repos);
                     if(store.getState().users.length === repoArray.length){
                         dispatch(reposGetSuccess(repoArray));
