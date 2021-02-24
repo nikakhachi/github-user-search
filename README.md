@@ -3,4 +3,5 @@
 
 ----
 
-Personal Project built with node.js, running on 'Heroku'
+### Code is messy. But I still didn't want to delete it.
+Using express and pure javascript.
