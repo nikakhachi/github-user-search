@@ -4,6 +4,7 @@
   margin: auto;
   padding: 0.9%;
   margin-bottom: 2%;
+  animation: fadeIn 1s;
 }
 
 #toggle-switch {
@@ -102,8 +103,7 @@
 }
 .grid-username {
   font-size: 1.3vw;
-  margin-top: 1%;
-  margin-bottom: 0%;
+  margin: 1% 1.5% 0% 1.5%;
   word-break: break-all;
 }
 .grid-usertype {
@@ -114,9 +114,45 @@
   margin-top: 8%;
   text-align: left;
   padding: 0 2%;
+  margin-bottom: 5%;
+}
+
+#loading {
+  font-size: 3vw;
+  font-family: "Roboto Condensed", sans-serif;
+  animation: sparkle 2s infinite;
+}
+
+#main-not-found {
+  font-size: 3vw;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0.001;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.001;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1024px) {
+  #view-container {
+    margin-top: 1.2%;
+  }
   #list-view-container {
     width: 72%;
   }
@@ -152,6 +188,11 @@
   }
   .grid-repos {
     font-size: 1.35vw;
+  }
+  #loading,
+  #main-not-found {
+    font-size: 6vw;
+    padding: 2% 0;
   }
 }
 
@@ -190,5 +231,10 @@
   .grid-repos {
     font-size: 3.5vw;
     margin-bottom: 6%;
+  }
+  #loading,
+  #main-not-found {
+    font-size: 13vw;
+    padding: 7% 0;
   }
 }

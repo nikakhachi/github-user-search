@@ -57,6 +57,7 @@
   padding: 1%;
   border-radius: 0.5vw;
   float: right;
+  text-align: center;
 }
 
 #user-org-title {
@@ -126,7 +127,190 @@ a:hover {
 }
 
 @media (max-width: 1024px) {
-  #user-box {
-    background-color: red;
+  #user-info-box {
+    width: 90%;
+    padding: 1.5%;
+    float: none;
+    margin: auto;
+  }
+  #user-avatar {
+    border-radius: 0.5vw;
+    margin-right: 2%;
+    width: 35%;
+  }
+
+  #user-main-info {
+    display: grid;
+  }
+
+  #user-fullname {
+    font-size: 4.5vw;
+  }
+
+  #user-login {
+    font-size: 4vw;
+  }
+
+  #user-login span {
+    font-size: 3vw;
+  }
+
+  #user-joindate {
+    font-size: 2.6vw;
+  }
+
+  #user-location,
+  #user-follow {
+    font-size: 2.5vw;
+  }
+
+  #user-orgs-box {
+    width: 40%;
+    padding: 1.5%;
+    border-radius: 0.5vw;
+    float: left;
+    margin-left: 3.5%;
+    margin-top: 3%;
+    text-align: center;
+  }
+
+  #user-org-title {
+    font-size: 3.7vw;
+  }
+
+  #user-org-url {
+    font-size: 3vw;
+    margin: 4% 0 6% 0;
+  }
+
+  #user-org-description {
+    font-size: 3vw;
+    margin-top: 5%;
+    margin-bottom: 6%;
+  }
+
+  #user-orgs {
+    font-size: 2.7vw;
+    margin-bottom: 7%;
+  }
+
+  #user-orgs a {
+    padding-right: 3%;
+  }
+
+  #user-repos-box {
+    width: 40%;
+    margin-top: 3%;
+    margin-left: 3%;
+    padding: 2% 3.5%;
+    border-radius: 0.5vw;
+    float: left;
+  }
+  #user-repos-title {
+    font-size: 3.7vw;
+    margin-bottom: 4%;
+  }
+  #user-repo {
+    font-size: 3vw;
+    margin-bottom: 5%;
+  }
+  #back-link {
+    position: static;
+    margin-left: 23%;
+    margin-top: 18%;
+    font-size: 4.5vw;
+    padding: 1.5% 2.5%;
+  }
+}
+
+@media (max-width: 500px) {
+  #user-info-box {
+    background-color: rgba(255, 255, 255, 0);
+    flex-direction: column;
+    align-items: center;
+  }
+  #user-main-info {
+    text-align: center;
+  }
+  #user-avatar {
+    border-radius: 3vw;
+    margin-bottom: 3%;
+    width: 55%;
+  }
+
+  #user-fullname {
+    font-size: 7.5vw;
+  }
+
+  #user-login {
+    font-size: 6.5vw;
+    margin: 2% 0 6% 0;
+  }
+
+  #user-login span {
+    font-size: 5vw;
+  }
+
+  #user-joindate {
+    font-size: 5vw;
+  }
+
+  #user-location {
+    font-size: 4.8vw;
+    margin: 2% 0;
+  }
+
+  #user-follow {
+    font-size: 4.2vw;
+  }
+
+  #user-orgs-box {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.521);
+    padding: 1.5%;
+    border-radius: 0.5vw;
+    float: none;
+    margin: auto;
+    margin-top: 3%;
+  }
+
+  #user-org-title {
+    font-size: 6vw;
+  }
+
+  #user-org-url {
+    font-size: 5.5vw;
+  }
+
+  #user-org-description {
+    font-size: 5vw;
+  }
+
+  #user-orgs {
+    font-size: 4.2vw;
+  }
+
+  #user-repos-box {
+    width: 90%;
+    margin-top: 3%;
+    padding: 2% 3.5%;
+    border-radius: 0.5vw;
+    float: none;
+    margin: auto;
+    margin-top: 6%;
+  }
+  #user-repos-title {
+    font-size: 6vw;
+  }
+  #user-repo {
+    font-size: 4.5vw;
+    margin-bottom: 5%;
+  }
+  #back-link {
+    margin-top: 10%;
+    font-size: 7vw;
+    padding: 2% 4%;
+    width: 50%;
+    margin-left: 26%;
   }
 }

@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 
@@ -54,7 +54,6 @@ const initialState = {
     loading: true,
     users: [],
     repos: [],
-    user: [],
     orgs: [],
     error: ''
 }
@@ -80,7 +79,12 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-const store = createStore(reducer, applyMiddleware(thunk));
+// const store = createStore(reducer, applyMiddleware(thunk));
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(
+    applyMiddleware(thunk)
+  ));
 
 
 const usersGetInitial = (login) => {
@@ -89,15 +93,22 @@ const usersGetInitial = (login) => {
         dispatch(usersGetRequest());
         axios.get(!login ? `https://api.github.com/search/users?q=followers:%3E=50000+in:user` : `https://api.github.com/search/users?q=${login}+in:user&per_page=2`)
         .then(response => {
-            dispatch(usersGetSuccess(response.data.items));
+            if(response.data.items.length > 0){
+                dispatch(usersGetSuccess(response.data.items));
+             }else{
+                dispatch(usersGetError());
+             }
             let repoArray = [];
             response.data.items.map(item => {
                 axios.get(item['repos_url'])
                 .then(response => {
-                    let repos = '';
-                    for(let i = 0; i < 3; i++){
-                        repos += response.data[i] ? `${response.data[i]['name']}, ` : '';
-                    }
+                    let repos = response.data[2] ? `${response.data[0].name}, ${response.data[1].name}, ${response.data[2].name}`
+                                : response.data[1] ? `${response.data[0].name}, ${response.data[1].name}` 
+                                : response.data[0] ? `${response.data[0].name}` : 'None';
+                    // let repos = '';
+                    // for(let i = 0; i < 3; i++){
+                    //     repos += response.data[i] ? `${response.data[i]['name']}, ` : '';
+                    // }
                     repoArray.push(repos);
                     if(store.getState().users.length === repoArray.length){
                         dispatch(reposGetSuccess(repoArray));
@@ -115,15 +126,19 @@ const getSpecificUser = (login) => {
     return function(dispatch){
         dispatch(usersReset());
         dispatch(usersGetRequest());
+        console.log('function called');
         axios.get(`https://api.github.com/users/${login}`)
         .then(userData => {
             dispatch(usersGetSuccess(userData.data))
+            console.log('user data saved');
             axios.get(userData.data[`repos_url`])
             .then(reposData => {
                 dispatch(reposGetSuccess(reposData.data));
+                console.log('user repos saved');
                 axios.get(userData.data['organizations_url'])
                 .then(orgsData => {
                     dispatch(orgsGetSuccess(orgsData.data));
+                    console.log('user orgs saved');
                     dispatch(usersLoaded());
                 })
             })

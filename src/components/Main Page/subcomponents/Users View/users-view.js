@@ -15,7 +15,6 @@ function UsersView(props){
 
     const [isGrid, setIsGrid] = useState(false);
 
-
     const dispatch = useDispatch();
 
 
@@ -34,8 +33,9 @@ function UsersView(props){
         <>
         <ToggleSwitch setView={setIsGrid} view={isGrid}/>
         <div id='view-container'>
-            {!loading && !isGrid ? <ListView users={users} repos={repos} click={() => dispatch(usersReset())}/> : 
-            !loading && isGrid ? <GridView users={users} repos={repos} click={() => dispatch(usersReset())}/> : <></>}
+            {!loading && !isGrid && users.length > 0 ? <ListView users={users} repos={repos} click={() => dispatch(usersReset())}/> : 
+            !loading && isGrid && users.length > 0 ? <GridView users={users} repos={repos} click={() => dispatch(usersReset())}/> : 
+            loading ? <div id='loading'>LOADING</div> : !loading ? <div id='main-not-found'>*NOT FOUND*</div> : <></>}
         </div>
         </>
     )
