@@ -10,3 +10,24 @@
 body {
   background-color: #ebecf1;
 }
+
+@keyframes sparkle {
+  0% {
+    opacity: 0.001;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.001;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
