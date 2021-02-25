@@ -46,7 +46,7 @@ function UserPage(){
                     <img id='user-org-img' alt='user organization logo' src={userOrgs[0]['avatar_url']}/>
                     <p id='user-org-description'>{userOrgs[0].description}</p>
                     <p id='user-orgs'><strong>Other Organizations</strong> : {userOrgs.slice(1).map(item => <a id='other-orgs-link' href={`https://github.com/${item.login}`}>{item.login}</a>)}</p> 
-                      </> : <p id='user-org-name'>None</p>}
+                      </> : <p id='user-org-none'>-None-</p>}
                 </div>
                 <div className='user-box' id='user-repos-box'>
                     <p id='user-repos-title'>Repositories</p>

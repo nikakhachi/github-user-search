@@ -88,6 +88,11 @@
   padding-right: 2%;
 }
 
+#user-org-none {
+  font-size: 2vw;
+  margin: 5% 0 3% 0;
+}
+
 #user-repos-box {
   background-color: white;
   width: 40%;
@@ -198,6 +203,11 @@ a:hover {
     padding-right: 3%;
   }
 
+  #user-org-none {
+    font-size: 3.5vw;
+    margin: 8% 0 7% 0;
+  }
+
   #user-repos-box {
     width: 40%;
     margin-top: 3%;
@@ -288,6 +298,11 @@ a:hover {
 
   #user-orgs {
     font-size: 4.2vw;
+  }
+
+  #user-org-none {
+    font-size: 6vw;
+    margin: 3.5% 0 3% 0;
   }
 
   #user-repos-box {
