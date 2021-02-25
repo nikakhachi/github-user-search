@@ -1,6 +1,7 @@
 #user-body {
   padding: 2%;
   font-family: "Montserrat", sans-serif;
+  animation: fadeIn 0.8s;
 }
 
 #user-info-box {
@@ -11,6 +12,7 @@
   border-radius: 0.5vw;
   float: left;
   margin-right: 1%;
+  text-align: left;
 }
 
 #user-avatar {
@@ -75,13 +77,15 @@
 
 #user-org-description {
   font-size: 1.4vw;
-  margin-top: 2%;
-  margin-bottom: 4%;
+  margin: 4% 0;
+  text-align: left;
 }
 
 #user-orgs {
   font-size: 1.1vw;
   margin-bottom: 5%;
+  text-align: left;
+  word-break: break-all;
 }
 
 #user-orgs a {
@@ -108,6 +112,7 @@
 #user-repo {
   font-size: 1.5vw;
   margin-bottom: 1.6%;
+  text-align: left;
 }
 
 a {
@@ -123,12 +128,31 @@ a:hover {
   color: white;
   border: none;
   font-size: 2vw;
-  padding: 0.3% 0.5%;
+  padding: 0.5% 2%;
   border-radius: 0.8vw;
   position: absolute;
   bottom: 5%;
-  left: 3%;
+  left: 43.5%;
   cursor: pointer;
+}
+
+#user-not-found,
+#limit-exceeded,
+#user-loading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 5vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+  animation: fadeIn 0.8s;
+}
+
+#limit-exceeded {
+  font-size: 4vw;
+}
+
+#user-loading {
+  animation: sparkle 1.5s infinite;
 }
 
 @media (max-width: 1024px) {
@@ -226,10 +250,22 @@ a:hover {
   }
   #back-link {
     position: static;
-    margin-left: 23%;
-    margin-top: 18%;
     font-size: 4.5vw;
     padding: 1.5% 2.5%;
+    margin-top: 20%;
+  }
+  #user-loading {
+    font-size: 8vw;
+    margin-top: 10%;
+  }
+  #limit-exceeded,
+  #user-not-found {
+    font-size: 7vw;
+    text-align: center;
+    margin-top: 22%;
+  }
+  #user-not-found {
+    font-size: 8.5vw;
   }
 }
 
@@ -322,10 +358,22 @@ a:hover {
     margin-bottom: 5%;
   }
   #back-link {
-    margin-top: 10%;
     font-size: 7vw;
     padding: 2% 4%;
     width: 50%;
-    margin-left: 26%;
+    margin: 10% 0% 5% 0%;
+  }
+  #user-loading {
+    font-size: 14vw;
+    margin-top: 20%;
+  }
+  #limit-exceeded {
+    font-size: 12vw;
+    margin-top: 25%;
+  }
+  #user-not-found {
+    font-size: 11vw;
+    margin: 0;
+    margin-top: 25%;
   }
 }

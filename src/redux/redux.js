@@ -81,7 +81,7 @@ const reducer = (state = initialState, action) => {
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
-
+// This function is executed when opening main page or searching in main page
 const usersGetInitial = (login) => {
     return function(dispatch){
         dispatch(usersReset());
@@ -113,27 +113,25 @@ const usersGetInitial = (login) => {
     }
 }
 
+// This function is executed when user goes in user page /:user
 const getSpecificUser = (login) => {
     return function(dispatch){
         dispatch(usersReset());
         dispatch(usersGetRequest());
-        console.log('function called');
         axios.get(`https://api.github.com/users/${login}`)
         .then(userData => {
             dispatch(usersGetSuccess(userData.data))
-            console.log('user data saved');
             axios.get(userData.data[`repos_url`])
             .then(reposData => {
                 dispatch(reposGetSuccess(reposData.data));
-                console.log('user repos saved');
                 axios.get(userData.data['organizations_url'])
                 .then(orgsData => {
                     dispatch(orgsGetSuccess(orgsData.data));
-                    console.log('user orgs saved');
                     dispatch(usersLoaded());
                 })
             })
         })
+        .catch(error => dispatch(usersGetError(error.message)))
     }
 }
 
