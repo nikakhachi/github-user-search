@@ -2,6 +2,8 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 
+const token = process.env.REACT_APP_TOKEN_KEY;
+
 
 function usersGetRequest () {
     return {
@@ -86,7 +88,11 @@ const usersGetInitial = (login) => {
     return function(dispatch){
         dispatch(usersReset());
         dispatch(usersGetRequest());
-        axios.get(!login ? `https://api.github.com/search/users?q=followers:%3E=50000+in:user` : `https://api.github.com/search/users?q=${login}+in:user&per_page=7`)
+        axios.get(!login ? `https://api.github.com/search/users?q=followers:%3E=50000+in:user` : `https://api.github.com/search/users?q=${login}+in:user&per_page=7`, {
+            headers: {
+                'Authorization': `Token ${token}`
+            }
+        })
         .then(response => {
             if(response.data.items.length > 0){
                 dispatch(usersGetSuccess(response.data.items));
@@ -118,7 +124,11 @@ const getSpecificUser = (login) => {
     return function(dispatch){
         dispatch(usersReset());
         dispatch(usersGetRequest());
-        axios.get(`https://api.github.com/users/${login}`)
+        axios.get(`https://api.github.com/users/${login}`, {
+            headers: {
+                'Authorization': `Token ${token}`
+            }
+        })
         .then(userData => {
             dispatch(usersGetSuccess(userData.data))
             axios.get(userData.data[`repos_url`])
