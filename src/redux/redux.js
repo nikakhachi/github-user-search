@@ -88,7 +88,7 @@ const usersGetInitial = (login) => {
     return function(dispatch){
         dispatch(usersReset());
         dispatch(usersGetRequest());
-        axios.get(!login ? `https://api.github.com/search/users?q=followers:%3E=20000+in:user` : `https://api.github.com/search/users?q=${login}+in:user`, {
+        axios.get(!login ? `https://api.github.com/search/users?q=followers:%3E=50000+in:user` : `https://api.github.com/search/users?q=${login}+in:user&per_page=100`, {
             headers: {
                 'Authorization': `Token ${token}`
             }
